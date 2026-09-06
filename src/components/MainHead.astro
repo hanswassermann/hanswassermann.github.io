@@ -18,15 +18,11 @@ const imagePath = image ? new URL(image, Astro.site).href : null;
 
 const url = new URL(Astro.url.pathname, Astro.site).href;
 
-const isHome = Astro.url.pathname === "/";
-const isProject = Astro.url.pathname.startsWith("/projects/");
-
 const schema = getSchema({
     title,
     description,
-    url,
-    isHome,
-    isProject
+    site: Astro.site?.origin ?? Astro.url.origin,
+    pathname: Astro.url.pathname
 });
 
 const jsonLdString = JSON.stringify(schema);
@@ -100,7 +96,7 @@ const jsonLdString = JSON.stringify(schema);
             "",
             "Interested in how it works?",
             "Check out the source code at",
-            "https://maxparisi.me/gh/portfolio",
+            "https://github.com/tinkerer9/portfolio",
             "",
             "Have fun!",
             "Max"

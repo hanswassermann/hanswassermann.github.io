@@ -3,26 +3,28 @@ import { socials } from "../data/socials";
 interface SchemaProps {
     title: string;
     description: string;
-    url: string;
-    isHome: boolean;
-    isProject: boolean;
+    site: string;
+    pathname: string;
 }
 
-export function getSchema({
-    title,
-    description,
-    url,
-    isHome,
-    isProject
-}: SchemaProps) {
+export function getSchema({ title, description, site, pathname }: SchemaProps) {
+    const base = site.replace(/\/$/, '');
+    const url = new URL(pathname, base).href;
+
+    const isHome = pathname === "/";
+    const isProject = pathname.startsWith("/projects/");
+
+    const personId = `${base}/#person`;
+    const websiteId = `${base}/#website`;
+
     const webPage = {
         "@type": "WebPage",
         "@id": url,
         "url": url,
         "name": title,
         "description": description,
-        "isPartOf": { "@id": "https://maxparisi.me/#website" },
-        "author": { "@id": "https://maxparisi.me/#person" },
+        "isPartOf": { "@id": websiteId },
+        "author": { "@id": personId },
         ...(isProject ? { "mainEntity": { "@id": `${url}#project` } } : {})
     };
 
@@ -32,7 +34,7 @@ export function getSchema({
         "name": title,
         "description": description,
         "url": url,
-        "author": { "@id": "https://maxparisi.me/#person" }
+        "author": { "@id": personId }
     };
 
     return {
@@ -40,25 +42,23 @@ export function getSchema({
         "@graph": [
             {
                 "@type": "Person",
-                "@id": "https://maxparisi.me/#person",
+                "@id": personId,
                 "name": "Max Parisi",
-                "url": "https://maxparisi.me",
-                "image": "https://maxparisi.me/assets/portrait.jpg",
+                "url": base,
+                "image": new URL("/assets/max/portrait.jpg", base).href,
                 "sameAs": socials.map(({ href }) => href)
             },
-
             {
                 "@type": "WebSite",
-                "@id": "https://maxparisi.me/#website",
-                "url": "https://maxparisi.me",
+                "@id": websiteId,
+                "url": base,
                 "name": "Max Parisi",
                 "alternateName": "Max Parisi",
                 "inLanguage": "en-US",
-                "publisher": { "@id": "https://maxparisi.me/#person" }
+                "publisher": { "@id": personId }
             },
-
-            ...(!isHome ? [ webPage ] : []),
-            ...(isProject ? [ project ] : [])
+            ...(!isHome ? [webPage] : []),
+            ...(isProject ? [project] : [])
         ]
     };
 }
