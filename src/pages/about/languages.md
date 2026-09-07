@@ -8,7 +8,7 @@ comments: true
 
 I already **speak** three languages&mdash;but I know how to program in many more.
 
-### Fluent
+## Fluent
 
 I'm not sure if the word *"fluent"* applies to programming, but here are the languages I'm good in:
 
@@ -16,14 +16,14 @@ I'm not sure if the word *"fluent"* applies to programming, but here are the lan
 - **Python:** simple yet powerful
 - **Arduino:** built on top of C++ for microcontroller programming
 
-### Learning
+## Learning
 
 I have some experience in these languages but wouldn't consider myself *"fluent"*:
 
 - **TypeScript:** builds on top of JavaScript for type control
 - **Astro:** technically a *framework*, but I used it to program this portfolio
 
-### Want to Learn
+## Want to Learn
 
 I don't know much about these languages but want to:
 
@@ -31,7 +31,7 @@ I don't know much about these languages but want to:
 - **C:** best for low-level hardware control (I've [used this once](/github/CollaboKeys/blob/main/src/emulate/helper.c))
 - **C++:** common for game development; Arduino is built on this
 
-### Honorable Mentions
+## Honorable Mentions
 
 I wouldn't call these *programming languages*, but I'm still *"fluent"* in them:
 
@@ -41,7 +41,7 @@ I wouldn't call these *programming languages*, but I'm still *"fluent"* in them:
 - **JSON & YAML:** both data formats for configurations and API responses
 - **Math:** even less of a programming language, but a fundamental for coding
 
-### Linguist
+## Linguist
 
 Using GitHub Linguist's [list of programming languages](https://github.com/github-linguist/linguist/blob/main/lib/linguist/languages.yml), here are the languages I've used on [GitHub](/github) (in order of when I learned them):
 

@@ -57,8 +57,8 @@ export function getSchema({ title, description, site, pathname }: SchemaProps) {
                 "inLanguage": "en-US",
                 "publisher": { "@id": personId }
             },
-            ...(!isHome ? [webPage] : []),
-            ...(isProject ? [project] : [])
+            ...(!isHome ? [ webPage ] : []),
+            ...(isProject ? [ project ] : [])
         ]
     };
 }

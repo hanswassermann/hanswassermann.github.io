@@ -10,7 +10,7 @@ Ever since discovering my dad's "old" camera, I was hooked.
 *"Old"* isn't the right word, as it was released in 2018, but he never used it.
 So, as far as I'm concerned, it's mine now.
 
-### Camera
+## Camera
 
 ![A Nikon Z6 with a 24-70mm lens](/assets/gear/camera/z6.jpg)
 <!-- markdownlint-disable-next-line MD033 -->
@@ -23,12 +23,12 @@ I use the Z6 for everything from [eclipse photography](/projects/eclipse-photogr
 
 The 24-70mm lens is able to zoom out to **24mm**, which is equal to a **1x zoom** on most phones, and can zoom in to **70mm**, comparable to a **3x zoom** on phones.
 
-### Mics
+## Mics
 
 In videography, good audio is more important than good video.
 I own various microphones for my camera.
 
-#### Lavalier
+### Lavalier
 
 ![The DJI Mic 3 in its charging case](/assets/gear/camera/mic3.jpg)
 
@@ -37,14 +37,14 @@ I use the **[DJI Mic 3](https://www.dji.com/mic-3)**, a tiny-yet-versatile wirel
 A **lavalier microphone** picks up audio close to the speaker, typically attached to the speaker's clothing.
 This, in contrast to a [shotgun microphone](#shotgun), is able to capture clear audio in noisy enviorments.
 
-#### Shotgun
+### Shotgun
 
 I bought the **[Movo VXR10](https://www.amazon.com/dp/B0723D3FVL)** because it was a cheap improvement to make on my camera's built in microphones.
 
 A **shotgun microphone**, despite its name, has nothing to do with weaponry.
 It typically sits on top of the camera, aimed at the speaker to capture audio without the need for an individual microphone on each speaker.
 
-### Accessories
+## Accessories
 
 Aside from microphones, I own a few other accessories for my camera.
 

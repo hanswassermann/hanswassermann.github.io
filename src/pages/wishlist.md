@@ -10,7 +10,7 @@ noindex: true
 Happy birthday, me!
 Here are a few things I'd like to have:
 
-### DJI RS 3 Mini
+## DJI RS 3 Mini
 
 [![A DJI camera stabilizer](/assets/wishlist/dji-rs-3-mini.jpg)](https://a.co/d/016GR8aR)
 
@@ -20,7 +20,7 @@ Here are a few things I'd like to have:
 I've got a unsteady hand&mdash;which is why over half of the videos of me recording something while moving end up upside down.
 This fixes that&mdash;it's a **camera stabilizer**, which allows me to take smooth videos even while doing backflips.
 
-### Elgato Stream Deck Mini
+## Elgato Stream Deck Mini
 
 [![An Elgato Steam Deck Mini](/assets/wishlist/stream-deck-mini.jpg)](https://a.co/d/05FFAKsh)
 
@@ -32,7 +32,7 @@ Unlike the 15-key version I use on my desk at home for desk-related for things, 
 
 In the future, I might use this (or another one) for controlling the soon-to-be living room downstairs!
 
-### Bankers Boxes
+## Bankers Boxes
 
 ![A Bankers Box](/assets/wishlist/bankers-box.jpg)
 **Priority:** low
@@ -43,7 +43,7 @@ As you can tell, I have a lot of ~~junk~~ random items that don't have a home.
 Unlike my other birthday presents, I'll let you use these&mdash;we all need storage, don't we?
 
 <!-- markdownlint-disable-next-line MD026 -->
-### Suprise me!
+## Suprise me!
 
 **Priority:** high
 
