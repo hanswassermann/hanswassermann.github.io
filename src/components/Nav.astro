@@ -256,6 +256,12 @@ const isCurrentPage = (href: string) => {
             font-size: var(--text-lg);
         }
 
+        .socials {
+            display: flex;
+            justify-content: flex-end;
+            gap: 0;
+        }
+
         .menu-content {
             display: contents;
         }
@@ -308,19 +314,8 @@ const isCurrentPage = (href: string) => {
             background-color: transparent;
             box-shadow: none;
         }
-
-        .socials {
-            display: none;
-        }
     }
 
-    @media (min-width: 60em) {
-        .socials {
-            display: flex;
-            justify-content: flex-end;
-            gap: 0;
-        }
-    }
     @media (forced-colors: active) {
         .link[aria-current='page'] {
             color: SelectedItem;

@@ -4,7 +4,7 @@ description: >-
   I was jealous of all the other Max Parisi's on Google.
   So I made a website to show that I exist, too.
 date: 2026-07-04
-updated: 2026-08-27
+updated: 2026-09-07
 image:
   path: /assets/projects/portfolio/homepage.jpg
   alt: A screenshot of maxparisi.me, my portfolio
@@ -90,8 +90,6 @@ I can also make **dynamic redirects**, such as `maxparisi.me/gh/my-repo-name` fo
 
 What if I want to share `maxparisi.me/about/athletics`?
 That's a long link, so I can also share `maxparisi.me/sports`, which redirects to the longer link.
-
-Check out my `_redirects` file at [maxparisi.me/redirects](/redirects)!
 
 ## Icons
 
