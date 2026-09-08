@@ -1,7 +1,6 @@
 ---
 layout: ../../layouts/MarkdownLayout.astro
 title: Camera Gear
-comments: true
 ---
 
 <!-- markdownlint-disable MD001 -->
