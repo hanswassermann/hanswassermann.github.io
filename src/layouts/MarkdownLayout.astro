@@ -33,7 +33,7 @@ const { frontmatter } = Astro.props;
             </div>
         </main>
 
-        { frontmatter.comments && (
+        { frontmatter.comments !== false && (
             <section class="wrapper comments">
                 <Comments />
             </section>

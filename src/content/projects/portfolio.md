@@ -41,6 +41,8 @@ Some country-code TLDs are "misused" for other purposes, such as `.io` for the B
 Many of these country-code TLDs have no restrictions, meaning anyone can register a domain name with them.
 And that's what I did.
 
+## Cloudflare
+
 I registered my domain, `maxparisi.me`, with [Squarespace](https://domains.squarespace.com/), but I didn't want to make my website with them.
 I'm a developer!
 
@@ -73,7 +75,7 @@ I can also write in Markdown, which I do for every project page including [this 
 Want to check out the source code behind this?
 Check out my [GitHub repository](/github/portfolio)!
 
-## Content Collections
+### Content Collections
 
 Astro supports [Content Collections](https://docs.astro.build/en/guides/content-collections/), which allow me to write [markdown files](/github/portfolio/blob/main/src/content/projects) for each project I've made, and then to use a [Dynamic Route](https://docs.astro.build/en/guides/routing/#dynamic-routes) to generate an HTML file for each project on build.
 
