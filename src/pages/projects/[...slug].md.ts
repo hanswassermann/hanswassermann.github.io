@@ -32,14 +32,16 @@ export async function GET({ props, url }: { props: { project: Project }; url: UR
         // keep newline spacing clean:
         .replace(/\n{3,}/g, '\n\n');
     
+    const image = project.data.image
+        ? `![${project.data.image.alt ?? ''}](${new URL(project.data.image.path, site).href})\n\n`
+        : '';
+
     const markdown = `\
 # ${project.data.title}
 
 ${project.data.description}
 
-![${project.data.image.alt ?? ''}](${new URL(project.data.image.path, site).href})
-
-${body}
+${image}${body}
 `;
 
     return new Response(markdown);

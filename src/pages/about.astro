@@ -1,0 +1,205 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Icon from '../components/Icon.astro';
+import { socials } from '../data/socials';
+
+const EMAIL = 'hwassermann04@gmail.com';
+
+const portraitModules = import.meta.glob<string>(
+    '../assets/hiking.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}',
+    { eager: true, query: '?url', import: 'default' }
+);
+const portrait = Object.values(portraitModules)[0] ?? null;
+---
+
+<BaseLayout
+    title="About Me | Hans Wassermann"
+    description="More about Hans Wassermann — background, the work I focus on, and what I do outside of engineering."
+>
+    <div class="stack gap-20">
+        <main class="wrapper about">
+            <Hero
+                title="About Me"
+                tagline="A bit more about my background and what I'm into."
+                align="start"
+            />
+
+            <div class="layout">
+                <div class="aside">
+                    {
+                        portrait && (
+                            <img class="photo" src={portrait} alt="Portrait of Hans Wassermann" />
+                        )
+                    }
+                </div>
+
+                <div class="prose stack gap-8">
+                    <section>
+                        <h2>Background</h2>
+                        <p>
+                            I'm currently a first year masters student at UofM specializing in control systems. I went to Rutgers for my 
+                            undergrad and graduated in 3 years with a 4.0 in ECE. I like working on making systems intelligent;
+                            whether thats by interfacing with additional sensors, automating a typically mundane task with a Python script, or 
+                            trying to get a drone off the ground, I've always enjoyed making things smarter and more robust.
+                        </p>
+                    </section>
+                    <section>
+                        <h2>Outside of engineering</h2>
+                        <p>I love spending time outdoors. I grew up in a hiking family, which I hated as a kid, but has now turned into a peaceful hobby of mine.
+                             I also love playing all kinds of sports and games: basketball, football (and fantasy football if that counts), pickleball, bowling, and skiing to name a few. I also spent the
+                             past summer playing copious amounts of Mario Kart 8 and FIFA with my friends. If you want to challenge me
+                             (or reach out to me), you can reach me at <a href={`mailto:${EMAIL}`}>{EMAIL}</a>.
+                        </p>
+                    </section>
+
+                    <section class="contact">
+                        <h2>Get in touch</h2>
+                        <p>The fastest way to reach me is email — I'm always happy to talk about projects, roles, or anything above.</p>
+                        <div class="contact-links">
+                            <a class="contact-primary" href={`mailto:${EMAIL}`}>
+                                <Icon icon="paper-plane-tilt" size="1.1em" /> {EMAIL}
+                            </a>
+                            {
+                                socials.map(({ href, label, icon }) => (
+                                    <a
+                                        class="contact-social"
+                                        href={href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <Icon icon={icon} size="1.1em" /> {label}
+                                    </a>
+                                ))
+                            }
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+    </div>
+</BaseLayout>
+
+<style>
+    .about {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+    }
+
+    .layout {
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+    }
+
+    .aside {
+        width: min(100%, 20rem);
+    }
+
+    .photo {
+        width: 100%;
+        aspect-ratio: 4 / 5;
+        object-fit: cover;
+        object-position: top;
+        border-radius: 1.5rem;
+        box-shadow: var(--shadow-md);
+    }
+
+    .prose {
+        color: var(--gray-300);
+        font-size: var(--text-md);
+        max-width: 60ch;
+    }
+
+    .prose h2 {
+        margin-bottom: 0.5rem;
+        font-size: var(--text-xl);
+        color: var(--gray-100);
+    }
+
+    .prose a {
+        color: var(--accent-regular);
+        text-decoration: underline;
+        text-underline-offset: 0.2em;
+        text-decoration-thickness: 1px;
+        transition: text-decoration-thickness var(--theme-transition);
+    }
+
+    .prose a:hover,
+    .prose a:focus-visible {
+        text-decoration-thickness: 2px;
+    }
+
+    .contact {
+        margin-top: 1rem;
+        padding-top: 1.75rem;
+        border-top: 1px solid var(--gray-800);
+    }
+
+    .contact-links {
+        margin-top: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+
+    .prose a.contact-primary,
+    .prose a.contact-social {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        padding: 0.55rem 1rem;
+        border-radius: 999rem;
+        font-family: var(--font-brand);
+        font-size: var(--text-sm);
+        text-decoration: none;
+        transition:
+            border-color var(--theme-transition),
+            background-color var(--theme-transition),
+            color var(--theme-transition),
+            opacity var(--theme-transition);
+    }
+
+    .prose a.contact-primary {
+        color: var(--accent-text-over);
+        background: var(--accent-regular);
+        box-shadow: var(--shadow-sm);
+    }
+
+    .prose a.contact-primary:hover,
+    .prose a.contact-primary:focus-visible {
+        opacity: 0.9;
+    }
+
+    .prose a.contact-social {
+        color: var(--gray-200);
+        border: 1px solid var(--gray-800);
+    }
+
+    .prose a.contact-social:hover,
+    .prose a.contact-social:focus-visible {
+        color: var(--gray-100);
+        border-color: var(--accent-regular);
+    }
+
+    @media (min-width: 50em) {
+        .layout {
+            flex-direction: row;
+            align-items: flex-start;
+            gap: 4rem;
+        }
+
+        .aside {
+            flex: 0 0 auto;
+            width: 20rem;
+            position: sticky;
+            top: 2.5rem;
+        }
+
+        .prose {
+            flex: 1 1 auto;
+            font-size: var(--text-lg);
+        }
+    }
+</style>

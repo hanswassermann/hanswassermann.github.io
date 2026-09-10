@@ -43,17 +43,16 @@ export function getSchema({ title, description, site, pathname }: SchemaProps) {
             {
                 "@type": "Person",
                 "@id": personId,
-                "name": "Max Parisi",
+                "name": "Hans Wassermann",
                 "url": base,
-                "image": new URL("/assets/max/portrait.jpg", base).href,
                 "sameAs": socials.map(({ href }) => href)
             },
             {
                 "@type": "WebSite",
                 "@id": websiteId,
                 "url": base,
-                "name": "Max Parisi",
-                "alternateName": "Max Parisi",
+                "name": "Hans Wassermann",
+                "alternateName": "Hans Wassermann",
                 "inLanguage": "en-US",
                 "publisher": { "@id": personId }
             },

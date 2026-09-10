@@ -4,13 +4,14 @@ description: >-
   A catchy description for the project.
   Use this to hook readers in.
 date: YYYY-MM-DD
-updated: YYYY-MM-DD
-image:
-  path: /assets/projects/myproject/image.jpg
-  alt: A description for the hero image
-tags:
-  - One-Word
-  - Keywords
+# Optional fields:
+# updated: YYYY-MM-DD
+# tags:
+#   - One-Word
+#   - Keywords
+# image:
+#   path: /assets/projects/myproject/image.jpg
+#   alt: A description for the hero image
 ---
 
 <!-- markdownlint-disable MD001 -->
@@ -30,12 +31,11 @@ Do not use an h1 header.
 
 ### Subheading
 
-Use an h4 header inside an h3 heading.
-Continue this down to h6.
+Use h3 and below for nested headings.
 
 ## Formatting
 
-Follow usual GFM synax for formatting.
+Follow usual GFM syntax for formatting.
 
 ## Reflection
 

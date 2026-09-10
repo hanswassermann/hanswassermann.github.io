@@ -6,7 +6,9 @@ import { externalLinks } from "./src/plugins/externalLinks";
 
 export default defineConfig({
     adapter: cloudflare(),
-    site: 'https://maxparisi.me',
+    // Set SITE_URL in the Cloudflare build env vars once you know your URL
+    // (e.g. https://hanswassermann.<subdomain>.workers.dev, later your custom domain).
+    site: process.env.SITE_URL ?? 'https://hanswassermann.com',
     trailingSlash: 'never',
     prefetch: { prefetchAll: true },
     markdown: {

@@ -12,27 +12,31 @@ const projects = (await getCollection('projects'))
 ---
 
 <BaseLayout
-    title="My Projects | Max Parisi"
-    description="Explore projects by Max Parisi, including software, electronics, photography, CAD designs, and hardware experiments."
-    image={projects[0].data.image.path}
-    imageAlt={projects[0].data.image.alt}
+    title="Projects | Hans Wassermann"
+    description="Projects by Hans Wassermann across control systems, embedded software, robotics, and machine learning."
+    image={projects[0]?.data.image?.path}
+    imageAlt={projects[0]?.data.image?.alt}
 >
     <div class="stack gap-20">
         <main class="wrapper stack gap-8">
             <Hero
-                title="My Projects"
-                tagline="Take a look at some of my projects from the past few years."
+                title="Projects"
+                tagline="Things I've designed and built, in and out of coursework."
                 align="start"
             />
-            <Grid variant="offset">
-                {
-                    projects.map((project: Project) => (
-                        <li>
-                            <Project project={project} />
-                        </li>
-                    ))
-                }
-            </Grid>
+            {
+                projects.length > 0 ? (
+                    <Grid variant="offset">
+                        {projects.map((project: Project) => (
+                            <li>
+                                <Project project={project} />
+                            </li>
+                        ))}
+                    </Grid>
+                ) : (
+                    <p>No projects yet — check back soon.</p>
+                )
+            }
         </main>
     </div>
 </BaseLayout>

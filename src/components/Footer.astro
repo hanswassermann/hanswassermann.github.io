@@ -6,17 +6,16 @@ const year = new Date().getFullYear();
 
 <footer>
     <div class="group">
-        <p>&copy; {year} Max Parisi</p>
+        <p>&copy; {year} Hans Wassermann</p>
     </div>
     <p class="links">
         <a href="/about">About</a>
-        <a href="mailto:max@maxparisi.me">Contact</a>
+        <a href="mailto:hwassermann04@gmail.com">Contact</a>
         {
             socials.map(({ href, label }) => (
                 <a href={href} target="_blank" rel="noopener noreferrer">{label}</a>
             ))
         }
-        <a href="/projects/rss.xml">Feed</a>
         <a href="/sitemap.xml">Sitemap</a>
     </p>
 </footer>

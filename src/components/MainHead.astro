@@ -35,8 +35,8 @@ const jsonLdString = JSON.stringify(schema);
 <!-- Basic Meta Tags -->
 <title>{title}</title>
 <meta name="description" content={description} />
-<meta name="application-name" content="Max Parisi" />
-<meta name="author" content="Max Parisi" />
+<meta name="application-name" content="Hans Wassermann" />
+<meta name="author" content="Hans Wassermann" />
 <link rel="canonical" href={canonical ?? url} />
 { noindex && <meta name="robots" content="noindex" /> }
 
@@ -45,7 +45,7 @@ const jsonLdString = JSON.stringify(schema);
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="shortcut icon" href="/favicon.ico" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-<meta name="apple-mobile-web-app-title" content="Max Parisi" />
+<meta name="apple-mobile-web-app-title" content="Hans Wassermann" />
 <link rel="manifest" href="/manifest.json" />
 
 <!-- Theme Color -->
@@ -60,7 +60,7 @@ const jsonLdString = JSON.stringify(schema);
 <meta property="og:type" content="website" />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:site_name" content="Max Parisi" />
+<meta property="og:site_name" content="Hans Wassermann" />
 <meta property="og:locale" content="en_US" />
 { imagePath && <meta property="og:image" content={imagePath} /> }
 { imageAlt && <meta property="og:image:alt" content={imageAlt} /> }
@@ -71,9 +71,8 @@ const jsonLdString = JSON.stringify(schema);
 <meta name="twitter:description" content={description} />
 { imagePath && <meta name="twitter:image" content={imagePath} /> }
 
-<!-- Sitemap and RSS Feed -->
+<!-- Sitemap -->
 <link rel="sitemap" href="/sitemap-index.xml" />
-<link rel="alternate" type="application/rss+xml" title="Subscribe to RSS Feed" href="/projects/rss.xml" />
 { markdown && <link rel="alternate" type="text/markdown" title="LLM-friendly version" href={markdown} /> }
 
 <!-- Preloading -->
@@ -83,25 +82,14 @@ const jsonLdString = JSON.stringify(schema);
 <!-- JSON-LD Schema -->
 <script type="application/ld+json" set:html={jsonLdString} />
 
-<!-- Console Easter Egg -->
-<script>
-    console.log(
-        [
-            "%c👋 Hey there!%c",
-            "",
-            "Looks like you've found the console.",
-            "",
-            "Most people see my portfolio...",
-            "but you took a look under the hood.",
-            "",
-            "Interested in how it works?",
-            "Check out the source code at",
-            "https://github.com/tinkerer9/portfolio",
-            "",
-            "Have fun!",
-            "Max"
-        ].join('\n'),
-        'font-size: 24px; font-family: "Rubik"; font-weight: 500;',
-        'font-size: 16px; font-family: "Public Sans";'
-    );
-</script>
+<!-- Cloudflare Web Analytics (set PUBLIC_CF_BEACON_TOKEN in the build env once the site is added in Cloudflare) -->
+{
+    import.meta.env.PROD && import.meta.env.PUBLIC_CF_BEACON_TOKEN && (
+        <script
+            is:inline
+            defer
+            src="https://static.cloudflareinsights.com/beacon.min.js"
+            data-cf-beacon={`{"token": "${import.meta.env.PUBLIC_CF_BEACON_TOKEN}"}`}
+        />
+    )
+}

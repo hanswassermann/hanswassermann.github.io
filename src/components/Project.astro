@@ -11,7 +11,13 @@ const { data, id } = Astro.props.project;
 <a class="card" href={`/projects/${id}`} title={data.description}>
     <span class="title">{data.title}</span>
     <span class="year">{data.date.getFullYear()}</span>
-    <img src={data.image.path} alt={data.image.alt || ''} loading="lazy" decoding="async" />
+    {
+        data.image ? (
+            <img src={data.image.path} alt={data.image.alt || ''} loading="lazy" decoding="async" />
+        ) : (
+            <span class="placeholder" aria-hidden="true" />
+        )
+    }
 </a>
 
 <style>
@@ -55,11 +61,18 @@ const { data, id } = Astro.props.project;
         display: none;
     }
 
-    img {
+    img,
+    .placeholder {
         grid-area: 1 / 1 / 3 / 3;
         width: 100%;
         height: 100%;
         object-fit: cover;
+    }
+
+    .placeholder {
+        background:
+            radial-gradient(circle at 30% 20%, var(--accent-overlay), transparent 60%),
+            var(--gradient-subtle);
     }
 
     @media (min-width: 50em) {

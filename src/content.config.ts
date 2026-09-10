@@ -12,14 +12,17 @@ export const collections = {
             title: z.string(),
             description: z.string(),
             date: z.coerce.date(),
-            updated: z.coerce.date(),
-            tags: z.array(z.string()),
-            image: z.object({
-                path: z.string(),
-                alt: z.string().optional()
-            }),
-            noindex: z.boolean().default(false),
-            comments: z.boolean().default(true)
+            updated: z.coerce.date().optional(),
+            tags: z.array(z.string()).default([]),
+            image: z
+                .object({
+                    path: z.string(),
+                    alt: z.string().optional()
+                })
+                .optional(),
+            // Set to true to load KaTeX and render $…$ / $$…$$ math on the page.
+            math: z.boolean().default(false),
+            noindex: z.boolean().default(false)
         })
     })
 };

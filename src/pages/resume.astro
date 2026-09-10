@@ -1,0 +1,105 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Icon from '../components/Icon.astro';
+
+// Drop your PDF at public/resume.pdf and this page will render it.
+const RESUME_PATH = '/resume.pdf';
+---
+
+<BaseLayout
+    title="Resume | Hans Wassermann"
+    description="Resume of Hans Wassermann, electrical and computer engineer focused on control systems and embedded software."
+>
+    <div class="stack gap-15">
+        <header class="wrapper">
+            <Hero
+                title="Resume"
+                tagline="Electrical & computer engineer; control systems, automation, and embedded software"
+                align="start"
+            >
+                <div class="actions">
+                    <a class="btn primary" href={RESUME_PATH} download>
+                        <Icon icon="download-simple" size="1.2em" /> Download PDF
+                    </a>
+                    <a class="btn" href={RESUME_PATH} target="_blank" rel="noopener noreferrer">
+                        Open in new tab
+                    </a>
+                </div>
+            </Hero>
+        </header>
+
+        <main class="wrapper">
+            <div class="viewer">
+                <object data={RESUME_PATH} type="application/pdf" aria-label="Resume PDF">
+                    <p class="fallback">
+                        Your browser can't display the embedded PDF.
+                        <a href={RESUME_PATH} download>Download it instead</a>.
+                    </p>
+                </object>
+            </div>
+        </main>
+    </div>
+</BaseLayout>
+
+<style>
+    .actions {
+        margin-top: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.6rem 1.1rem;
+        border: 1px solid var(--gray-800);
+        border-radius: 999rem;
+        color: var(--gray-200);
+        text-decoration: none;
+        font-family: var(--font-brand);
+        font-size: var(--text-sm);
+        transition: border-color var(--theme-transition), color var(--theme-transition);
+    }
+
+    .btn:hover,
+    .btn:focus-visible {
+        border-color: var(--accent-regular);
+        color: var(--gray-100);
+    }
+
+    .btn.primary {
+        background: var(--accent-regular);
+        border-color: var(--accent-regular);
+        color: var(--accent-text-over);
+    }
+
+    .btn.primary:hover,
+    .btn.primary:focus-visible {
+        color: var(--accent-text-over);
+        opacity: 0.9;
+    }
+
+    .viewer {
+        border: 1px solid var(--gray-800);
+        border-radius: 1rem;
+        overflow: hidden;
+        background: var(--gradient-subtle);
+    }
+
+    .viewer object {
+        display: block;
+        width: 100%;
+        height: 85vh;
+        min-height: 40rem;
+        border: 0;
+    }
+
+    .fallback {
+        padding: 2rem;
+        text-align: center;
+        color: var(--gray-300);
+    }
+</style>

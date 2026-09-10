@@ -10,14 +10,9 @@ type Project = CollectionEntry<'projects'>;
 
 const staticPages: Page[] = [
     { path: '/', title: 'Home' },
-    { path: '/projects', title: 'Projects' },
     { path: '/about', title: 'About Me' },
-    // { path: '/about/athletics', title: 'Athletics' },
-    { path: '/about/languages', title: 'Languages' },
-    // { path: '/about/volunteering', title: 'Volunteering' },
-    // { path: '/gear', title: 'Gear' },
-    // { path: '/gear/camera', title: 'Camera Gear' },
-    // { path: '/gear/printing', title: '3D Printing Gear' }
+    { path: '/projects', title: 'Projects' },
+    { path: '/resume', title: 'Resume' }
 ];
 
 const projects = (await getCollection('projects'))

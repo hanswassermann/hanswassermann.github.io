@@ -1,12 +1,12 @@
 ---
 import Icon from './Icon.astro';
-import Konami from './Konami.astro';
 import { socials } from '../data/socials';
 
 const textLinks: { label: string; href: string }[] = [
     { label: 'Home', href: '/' },
+    { label: 'About', href: '/about' },
     { label: 'Projects', href: '/projects' },
-    { label: 'About', href: '/about' }
+    { label: 'Resume', href: '/resume' }
 ];
 
 const isCurrentPage = (href: string) => {
@@ -20,10 +20,8 @@ const isCurrentPage = (href: string) => {
 <nav>
     <div class="menu-header">
         <a href="/" class="site-title">
-            <Konami>
-                <Icon icon="terminal-window" color="var(--accent-regular)" size="1.6em" gradient />
-            </Konami>
-            Max Parisi
+            <span class="monogram" aria-hidden="true">HW</span>
+            Hans Wassermann
         </a>
         <menu-button>
             <template>
@@ -138,11 +136,26 @@ const isCurrentPage = (href: string) => {
 
     .site-title {
         display: flex;
-        gap: 0.5rem;
+        gap: 0.6rem;
         align-items: center;
         line-height: 1.1;
         color: var(--gray-0);
         text-decoration: none;
+    }
+
+    .monogram {
+        display: grid;
+        place-items: center;
+        width: 1.9em;
+        height: 1.9em;
+        border-radius: 0.55em;
+        background: var(--gradient-accent);
+        color: var(--accent-text-over);
+        font-family: var(--font-brand);
+        font-weight: 600;
+        font-size: 0.8em;
+        letter-spacing: 0.03em;
+        box-shadow: var(--shadow-sm);
     }
 
     .menu-button {
