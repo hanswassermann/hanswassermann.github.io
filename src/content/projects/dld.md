@@ -41,7 +41,12 @@ This is a classic finite state machine problem — 5 discrete states, one input 
 ## State Diagram & Encoding
 
 <figure>
-  <img src="/assets/projects/dld/schematic.png" alt="TODO: logic gate schematic for the state machine" />
+  <img src="/assets/projects/dld/state-diagram.png" />
+  <figcaption>State diagram to account for all light combination timings.</figcaption>
+</figure>
+
+<figure>
+  <img src="/assets/projects/dld/schematic.png" />
   <figcaption>Final combinational + sequential logic schematic: 3 D flip-flops driving the state, with gate networks generating the 6 light outputs.</figcaption>
 </figure>
 
@@ -75,7 +80,7 @@ Since each state needed to persist for either 4 or 8 seconds, the design needed 
 ## Implementation
 
 <figure>
-  <img src="/assets/projects/dld/implementation.png" alt="TODO: breadboard implementation showing all wiring" />
+  <img src="/assets/projects/dld/implementation.png"/>
   <figcaption>Final breadboard build: 3 D flip-flops, combinational logic gates for the 6 light outputs, and the 555 timer clock source.</figcaption>
 </figure>
 

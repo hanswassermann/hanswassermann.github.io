@@ -33,7 +33,7 @@ A field-deployable system that reports on hive health without a beekeeper having
 A dual-ESP32 system: a battery-powered in-hive unit that wakes every 15 minutes to sample temperature, humidity, pressure, weight, and audio, then sends it over BLE to a bridge device, which relays it over WiFi to our backend and dashboard.
 
 <figure>
-  <img src="/assets/projects/beehive-monitoring-system/capstone_protoboard.jpg" alt="TODO: describe the embedded hardware design" />
+  <img src="/assets/projects/beehive-monitoring-system/capstone_protoboard.jpg" Custom Protoboard" />
   <figcaption>Soldered protoboard with detachable connectors to outside sensors and antenna.</figcaption>
 </figure>
 
@@ -60,12 +60,12 @@ Two AI layers sit on top of the raw sensor data: an audio classifier that listen
 A custom CAD enclosure, 3D printed to house the electronics and survive the humid, hive environment with minimal disruption to the colony.
 
 <figure class="narrow">
-  <img src="/assets/projects/beehive-monitoring-system/capstone_cad.png" alt="TODO: describe the initial CAD design" />
+  <img src="/assets/projects/beehive-monitoring-system/capstone_cad.png" alt="CAD enclosure" />
   <figcaption>CAD enclosure with indents for protoboard, charging module, and battery chassis, with exterior ports for sensor and antenna wiring.</figcaption>
 </figure>
 
 <figure>
-  <img src="/assets/projects/beehive-monitoring-system/capstone_full_design.jpg" alt="TODO: describe the final prototype" />
+  <img src="/assets/projects/beehive-monitoring-system/capstone_full_design.jpg" alt="Final Prototype" />
   <figcaption>Final assembled prototype without lid.</figcaption>
 </figure>
 
@@ -76,6 +76,6 @@ A custom CAD enclosure, 3D printed to house the electronics and survive the humi
 ## Poster
 
 <figure>
-  <img src="/assets/projects/beehive-monitoring-system/poster.png" alt="TODO: describe the final poster" />
+  <img src="/assets/projects/beehive-monitoring-system/poster.png" alt="Final poster" />
   <figcaption>Our senior capstone design showcase poster.</figcaption>
 </figure>

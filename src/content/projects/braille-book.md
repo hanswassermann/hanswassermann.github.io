@@ -32,12 +32,12 @@ A refreshable Braille reader built for under $40, aiming to make Braille literac
 Each Braille cell is displayed using two rotating octagonal prisms — one per 3-dot column — so all 64 Grade 1 Braille characters can be represented by 8 faces per prism.
 
 <figure>
-  <img src="/assets/projects/braille-book/prototype1-cad.png" alt="TODO: describe the octagon/motor CAD design" />
+  <img src="/assets/projects/braille-book/prototype1-cad.png" />
   <figcaption>Prototype 1 CAD: direct motor shaft drive into the octagonal prism.</figcaption>
 </figure>
 
 <figure>
-  <img src="/assets/projects/braille-book/prototype1-layout.png" alt="TODO: describe the assembled testing layout" />
+  <img src="/assets/projects/braille-book/prototype1-layout.png" />
   <figcaption>First 3D-printed prototype, assembled and wired for testing.</figcaption>
 </figure>
 
@@ -49,22 +49,22 @@ Each Braille cell is displayed using two rotating octagonal prisms — one per 3
 ## Prototype Iterations
 
 <figure class="narrow">
-  <img src="/assets/projects/braille-book/prototype2-cad.png" alt="TODO: describe bevel gear CAD" />
+  <img src="/assets/projects/braille-book/prototype2-cad.png" />
   <figcaption>Prototype 2: bevel gear transmission, reorienting the motor 90° to tighten cell spacing.</figcaption>
 </figure>
 
 <figure>
-  <img src="/assets/projects/braille-book/prototype2-print.png" alt="TODO: describe the printed bevel gear prototype" />
+  <img src="/assets/projects/braille-book/prototype2-print.png" />
   <figcaption>3D-printed bevel gear housing and motor adapter.</figcaption>
 </figure>
 
 <figure class="narrow">
-  <img src="/assets/projects/braille-book/prototype3-cad-top.png" alt="TODO: describe spur gear top view" />
+  <img src="/assets/projects/braille-book/prototype3-cad-top.png"/>
   <figcaption>Prototype 3 (final): spur gear transmission, top view.</figcaption>
 </figure>
 
 <figure class="narrow">
-  <img src="/assets/projects/braille-book/prototype3-cad-side.png" alt="TODO: describe spur gear side view" />
+  <img src="/assets/projects/braille-book/prototype3-cad-side.png" />
   <figcaption>Prototype 3 (final): spur gear transmission, side view.</figcaption>
 </figure>
 
@@ -75,12 +75,12 @@ Each Braille cell is displayed using two rotating octagonal prisms — one per 3
 Stepper motors drive each prism to its target face; a microcontroller computes the minimum rotation path.
 
 <figure class="narrow">
-  <img src="/assets/projects/braille-book/stepper-motor.png" alt="TODO: describe the stepper motor" />
+  <img src="/assets/projects/braille-book/stepper-motor.png"/>
   <figcaption>28BYJ-48 stepper motor.</figcaption>
 </figure>
 
 <figure class="narrow">
-  <img src="/assets/projects/braille-book/driver-board.png" alt="TODO: describe the driver board" />
+  <img src="/assets/projects/braille-book/driver-board.png" />
   <figcaption>ULN2003 motor driver board.</figcaption>
 </figure>
 
@@ -103,7 +103,7 @@ Text entered on the host computer (`input.py`) is converted to physical motor mo
 ## Demo
 
 <figure>
-  <img src="/assets/projects/braille-book/demo.gif" alt="TODO: describe what's shown in the demo" />
+  <img src="/assets/projects/braille-book/demo.gif"/>
   <figcaption>Live demo: text-to-Braille rendering on the two-cell prototype.</figcaption>
 </figure>
 
