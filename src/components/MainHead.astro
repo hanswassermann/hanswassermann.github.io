@@ -26,6 +26,10 @@ const schema = getSchema({
 });
 
 const jsonLdString = JSON.stringify(schema);
+
+// Cloudflare Web Analytics: accept either a bare token or the full <script> snippet
+// pasted from the Cloudflare dashboard — pull the 32-char hex token out either way.
+const cfBeaconToken = (import.meta.env.PUBLIC_CF_BEACON_TOKEN ?? '').match(/[a-f0-9]{32}/i)?.[0] ?? '';
 ---
 
 <!-- Essential Elements -->
@@ -84,12 +88,12 @@ const jsonLdString = JSON.stringify(schema);
 
 <!-- Cloudflare Web Analytics (set PUBLIC_CF_BEACON_TOKEN in the build env once the site is added in Cloudflare) -->
 {
-    import.meta.env.PROD && import.meta.env.PUBLIC_CF_BEACON_TOKEN && (
+    import.meta.env.PROD && cfBeaconToken && (
         <script
             is:inline
             defer
             src="https://static.cloudflareinsights.com/beacon.min.js"
-            data-cf-beacon={`{"token": "${import.meta.env.PUBLIC_CF_BEACON_TOKEN}"}`}
+            data-cf-beacon={`{"token": "${cfBeaconToken}"}`}
         />
     )
 }
