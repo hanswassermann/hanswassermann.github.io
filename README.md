@@ -2,10 +2,10 @@
 
 Source for Hans Wassermann's portfolio site.
 
-Built with [Astro](https://astro.build) and deployed as a static site on a
-[Cloudflare Worker](https://developers.cloudflare.com/workers/). Originally based
-on the Astro [Portfolio theme](https://astro.build/themes/details/portfolio),
-since heavily rewritten.
+Built with [Astro](https://astro.build) and deployed as a static site on
+[GitHub Pages](https://pages.github.com/). Originally based on the Astro
+[Portfolio theme](https://astro.build/themes/details/portfolio), since heavily
+rewritten.
 
 ## Pages
 
@@ -34,7 +34,7 @@ Projects are Markdown with frontmatter validated by `src/content.config.ts`
 npm install
 npm run dev        # http://localhost:4321
 npm run build      # static build to dist/
-npm run preview    # build + wrangler dev
+npm run preview    # serve the built dist/
 ```
 
 Restart the dev server after editing `astro.config.mjs` or
@@ -42,6 +42,6 @@ Restart the dev server after editing `astro.config.mjs` or
 
 ## Deploy
 
-Git-connected Cloudflare Worker: every push to `main` rebuilds and publishes.
-Full setup and the `SITE_URL` / `PUBLIC_CF_BEACON_TOKEN` build variables are in
+GitHub Actions builds and publishes to GitHub Pages on every push to `main`
+(`.github/workflows/deploy.yml`). Setup and optional analytics are in
 [`DEPLOY.md`](DEPLOY.md).

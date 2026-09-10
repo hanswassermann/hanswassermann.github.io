@@ -1,51 +1,58 @@
 # Deploying
 
-The site is an Astro static build served by a Cloudflare Worker
-(`@astrojs/cloudflare` adapter + `wrangler.jsonc`). Deploy is Git-connected:
-every push to `main` on GitHub rebuilds and publishes.
+Static Astro site hosted on **GitHub Pages** at `https://hanswassermann.github.io`.
+A GitHub Actions workflow (`.github/workflows/deploy.yml`) builds and publishes on
+every push to `main`.
 
-## One-time setup (Cloudflare dashboard)
+## One-time setup
 
-1. Push the repo to GitHub (`main`).
-2. Cloudflare dashboard → **Workers & Pages** → **Create** → **Workers** →
-   **Import a repository** → pick `hanswassermann/portfolio`.
-3. Build settings:
-   - **Build command:** `npm run build`
-   - **Deploy command:** `npx wrangler deploy`
-   - **Version / preview command:** leave default (or `npx wrangler versions upload`)
-   - Node version comes from `.node-version` (22).
-4. Deploy. The site goes live at `https://hanswassermann.<your-subdomain>.workers.dev`.
-5. Copy that URL and add a **build environment variable**:
-   - `SITE_URL` = `https://hanswassermann.<your-subdomain>.workers.dev`
+1. **Rename the repo** to `hanswassermann.github.io`
+   (GitHub → repo → Settings → General → Repository name → Rename).
+   This is what makes the site serve from the root URL. History and your local
+   clone keep working; run `git remote set-url origin` with the new URL if you
+   want the remote updated locally.
 
-   This feeds canonical URLs, OpenGraph tags, `sitemap.xml`, and `robots.txt`.
-   Redeploy (push any commit, or "Retry deployment") so it takes effect.
+2. **Enable Pages**: repo → Settings → Pages → **Source: GitHub Actions**.
 
-## Analytics (Cloudflare Web Analytics)
+3. Push to `main` (or use Settings → Actions → run the workflow manually). The
+   workflow builds with `withastro/action`, adds `.nojekyll`, and deploys.
+   First run takes ~1–2 minutes; the URL shows up under the workflow's
+   `deploy` job and in Settings → Pages.
 
-1. Cloudflare dashboard → **Analytics & Logs** → **Web Analytics** → **Add a site**.
-2. Enter the `*.workers.dev` hostname. Choose the **JS snippet** option
-   (automatic setup only works behind Cloudflare's proxy, i.e. a custom domain).
-3. Copy the **token** from the snippet it shows (the `"token": "…"` value).
-4. Add another **build environment variable**:
-   - `PUBLIC_CF_BEACON_TOKEN` = `<that token>`
-5. Redeploy. The beacon script (`src/components/MainHead.astro`) only renders in
-   production builds when this variable is set — nothing loads in `npm run dev`.
+## Analytics (optional — Cloudflare Web Analytics)
 
-Data shows up in the Web Analytics dashboard within a few minutes: page views,
-top pages, referrers, countries, and load-time / Core Web Vitals. No cookies, so
-no consent banner needed. (It does **not** track individual clicks or heatmaps —
-that needs a separate tool like Microsoft Clarity or PostHog.)
+Works on any domain, no Cloudflare hosting needed:
+
+1. [Cloudflare dashboard](https://dash.cloudflare.com) → **Web Analytics** →
+   **Add a site** → enter `hanswassermann.github.io` → pick the JS-snippet option.
+2. Copy the token (the `"token": "…"` value).
+3. Repo → Settings → Secrets and variables → **Actions** → **Variables** tab →
+   **New repository variable**: name `PUBLIC_CF_BEACON_TOKEN`, value = the token.
+4. Re-run the workflow. The beacon (`src/components/MainHead.astro`) only renders
+   in production builds when this variable is set.
 
 ## Custom domain (later)
 
-1. Add the domain to Cloudflare (Registrar or move nameservers).
-2. Worker → **Settings** → **Domains & Routes** → add the custom domain.
-3. Update the `SITE_URL` build variable to the new URL and redeploy.
+1. Repo → Settings → Pages → **Custom domain** → enter it (GitHub writes a
+   `CNAME` file to the published site).
+2. Add the DNS records GitHub shows at your registrar.
+3. Set a repo Actions **variable** `SITE_URL` to the new `https://…` URL so
+   canonical tags, OpenGraph, and `sitemap.xml` use it, then re-run the workflow.
 
-## Manual deploy (fallback)
+## Local
 
 ```sh
-npx wrangler login
-npm run deploy
+npm install
+npm run dev        # http://localhost:4321
+npm run build      # static build → dist/
+npm run preview    # serve the built dist/
 ```
+
+Restart the dev server after editing `astro.config.mjs` or
+`src/content.config.ts` — those don't hot-reload.
+
+## Notes
+
+- GitHub Pages has no redirect support, so the old `_redirects` short links
+  (`/cv`, `/linkedin`) are gone. If you want them back, add small HTML files with
+  a `<meta http-equiv="refresh">` under `public/`.
