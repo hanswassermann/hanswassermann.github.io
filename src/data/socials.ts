@@ -9,7 +9,7 @@ type Social = {
 export const socials: Social[] = [
     {
         label: 'LinkedIn',
-        href: 'https://www.linkedin.com/in/hans-wassermann-901730296',
+        href: 'https://www.linkedin.com/in/hans-wassermann',
         icon: 'linkedin-logo'
     }
 ];

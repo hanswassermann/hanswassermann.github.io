@@ -19,6 +19,32 @@ export type TimelineEntry = {
 };
 
 export const experience: TimelineEntry[] = [
+        {
+        type: 'work',
+        title: 'Controls Graduate Research Assistant',
+        org: 'UofM - Precision Systems Design Lab',
+        location: 'Ann Arbor, MI',
+        start: '2026-09',
+        logo: '/assets/experience/psdl_seal.svg', 
+        end: 'Present',
+        points: [
+            'Conducting system identification via experimental frequency testing on a 2-axis flexure-based nanopositioning stage.',
+            'Designing PID and feedforward controllers in MATLAB/Simulink to achieve fast point-to-point positioning.'
+        ]
+        },
+        {
+        type: 'work',
+        title: 'GNC Team Member',
+        org: 'Michigan Autonomous Aerial Vehicles Club',
+        location: 'Ann Arbor, MI',
+        start: '2026-09',
+        logo: '/assets/experience/maav.ico', 
+        end: 'Present',
+        points: [
+            'Set up a PX4 SITL + Gazebo quadrotor simulation, integrating flight telemetry with ROS 2 via Micro XRCE-DDS',
+            'Refactored waypoint-following logic to support heading-based arrival criteria and timed hold states before advancing'
+        ]
+        },
     {
         type: 'education',
         title: 'M.S. Electrical & Computer Engineering',
